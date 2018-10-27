@@ -1,2 +1,2 @@
 # language
-Temporary repository for the Language project with Creative Labs.
+Repository for the Language project with Creative Labs.

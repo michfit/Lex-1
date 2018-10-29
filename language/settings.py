@@ -25,7 +25,7 @@ SECRET_KEY = 'm8&$thga=yyt0xy96j58xg$bh$qms89me=b*r3i7gfm^u83ff1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-35-164-112-152.us-west-2.compute.amazonaws.com']
 
 
 # Application definition

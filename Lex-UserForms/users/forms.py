@@ -8,7 +8,7 @@ from .models import CustomUser, Language
 class UserRegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'password1', 'password2', 'language_preference')
+        fields = ('username', 'email', 'password1', 'password2', 'commitment_level', 'age_range', 'language_preference')
  
     language_preference = ModelMultipleChoiceField(queryset=Language.objects.all(), widget=Select2MultipleWidget)
 

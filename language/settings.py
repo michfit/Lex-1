@@ -25,7 +25,8 @@ SECRET_KEY = 'm8&$thga=yyt0xy96j58xg$bh$qms89me=b*r3i7gfm^u83ff1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-35-164-112-152.us-west-2.compute.amazonaws.com', '127.0.0.1']
+ALLOWED_HOSTS = ['http://langx.us-west-2.elasticbeanstalk.com/',
+                 'ec2-35-164-112-152.us-west-2.compute.amazonaws.com', '127.0.0.1']
 
 
 # Application definition
@@ -78,13 +79,24 @@ WSGI_APPLICATION = 'language.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

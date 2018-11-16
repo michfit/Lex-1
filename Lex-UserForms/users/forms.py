@@ -6,13 +6,14 @@ from itertools import chain
 from .models import CustomUser, Language
 from django import forms
 from django.forms import ModelForm
+from django.contrib.gis import forms as geoforms
 from mapwidgets.widgets import GooglePointFieldWidget, GoogleStaticOverlayMapWidget
 class UserRegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'commitment_level', 'age_range', 'language_preference','location')
         widgets = {
-            'location': GooglePointFieldWidget()    
+            'location': geoforms.OSMWidget(attrs={'map_width': 800, 'map_height': 500})    
         }
     language_preference = ModelMultipleChoiceField(queryset=Language.objects.all(), widget=Select2MultipleWidget)
     

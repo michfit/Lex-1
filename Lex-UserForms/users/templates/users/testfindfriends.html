@@ -1,0 +1,17 @@
+<form method ='GET' action=''>
+    <input type ='text' name='username' placeholder='Search by Username' />
+    <input type='submit' value='Search' />
+</form>
+
+
+<form>
+  <input type="checkbox" name="language" value="on"> Language <br>
+  <input type="checkbox" name="age" value="on"> Age <br>
+    <input type='submit' value='Search' />
+</form>
+
+{% for user in users %}
+    <a href="{% url 'profile_with_pk' pk=user.pk %}">
+        <p>{{ user.username }}</p>
+    </a>
+{% endfor %}

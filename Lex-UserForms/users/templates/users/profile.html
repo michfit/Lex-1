@@ -1,0 +1,10 @@
+
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>{{ user.username }}</h1>
+    <p>{{ user.first_name }}</p>
+    <p>{{ user.email }}</p>
+ <p>{{ user.language_preference }}</p>
+ <p>{{ user.age_range }}</p>
+
+{% endblock content %}

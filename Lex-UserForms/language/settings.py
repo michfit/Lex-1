@@ -37,7 +37,7 @@ MAP_WIDGETS = {
 ("GooglePlaceAutocompleteOptions", {'componentRestrictions': {'country': 'america'}}),
 ("markerFitZoom", 12),
 ),
-"GOOGLE_MAP_API_KEY": "AIzaSyCACVjIdGanqB4UCeOhTqC4AQedSU5X2_E"
+"GOOGLE_MAP_API_KEY": ""
 }
 
 INSTALLED_APPS = [

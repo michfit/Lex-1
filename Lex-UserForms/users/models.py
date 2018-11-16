@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from multiselectfield import MultiSelectField
-from django.contrib.gis.db import geomodels
+from django.contrib.gis.db import models as geomodels
 # Create your models here.
 
 class CustomUser(AbstractUser):

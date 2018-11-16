@@ -37,7 +37,7 @@ MAP_WIDGETS = {
 ("GooglePlaceAutocompleteOptions", {'componentRestrictions': {'country': 'america'}}),
 ("markerFitZoom", 12),
 ),
-"GOOGLE_MAP_API_KEY": ""
+"GOOGLE_MAP_API_KEY": "AIzaSyCACVjIdGanqB4UCeOhTqC4AQedSU5X2_E"
 }
 
 INSTALLED_APPS = [
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'mapwidgets',
     'django.utils',
+    'django.contrib.gis',
 ]
 
 MIDDLEWARE = [

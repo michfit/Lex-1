@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from multiselectfield import MultiSelectField
+from django.contrib.gis.db import geomodels
 # Create your models here.
 
 class CustomUser(AbstractUser):
@@ -21,7 +22,8 @@ class CustomUser(AbstractUser):
     )
     age_range = models.CharField(max_length=3,choices=AGE_RANGES)
     commitment_level = models.CharField(max_length=3,choices=COMMITMENT_LEVELS)
-    
+    location = geomodels.PointField(geography=True, null=True, blank=False)
+
     def __str__(self):
         return self.email
 

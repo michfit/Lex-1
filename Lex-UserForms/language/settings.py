@@ -30,6 +30,16 @@ ALLOWED_HOSTS = ['ec2-35-164-112-152.us-west-2.compute.amazonaws.com', '127.0.0.
 
 # Application definition
 
+MAP_WIDGETS = {
+"GooglePointFieldWidget": (
+("zoom", 15),
+("mapCenterLocationName", "los_angeles"),
+("GooglePlaceAutocompleteOptions", {'componentRestrictions': {'country': 'america'}}),
+("markerFitZoom", 12),
+),
+"GOOGLE_MAP_API_KEY": ""
+}
+
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'main.apps.MainConfig',
@@ -42,6 +52,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_select2',
     'multiselectfield',
+    'mapwidgets',
+    'django.utils',
 ]
 
 MIDDLEWARE = [

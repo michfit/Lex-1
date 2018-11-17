@@ -13,7 +13,7 @@ class UserRegisterForm(UserCreationForm):
         model = CustomUser
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'commitment_level', 'age_range', 'language_preference','location')
         widgets = {
-            'location': geoforms.OSMWidget(attrs={'map_width': 800, 'map_height': 500})    
+            'location': GooglePointFieldWidget()   
         }
     language_preference = ModelMultipleChoiceField(queryset=Language.objects.all(), widget=Select2MultipleWidget)
     

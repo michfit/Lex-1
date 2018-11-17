@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {{ form.media.js }}
     {{ form.media.css }}
 	<style type="text/css">
 		select {
@@ -17,7 +18,7 @@
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Join Today</legend>
                 {{form.media}}
-                {{ form|crispy }}
+                {{ form| crispy }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign Up</button>
@@ -35,6 +36,6 @@
     		$("body").attr("JSError", msg);
   		}
 	</script>
-    {{ form.media.js }}
+    
 </body>
 {% endblock content %}

@@ -5,18 +5,27 @@ from .forms import UserRegisterForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from .models import CustomUser
 from .forms import FriendForm
+from users.forms import UserRegisterFormLanguage, UserRegisterFormAge, UserRegisterFormCommitment, UserRegisterFormSkills
 
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
+        formLanguage = UserRegisterFormLanguage(request.POST)
+        formAge = UserRegisterFormAge(request.POST)
+        formCommitment = UserRegisterFormCommitment(request.POST)
+        formSkills = UserRegisterFormSkills(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Your account has been created! You can now log in.')
             return redirect('login')
     else:
+        formLanguage = UserRegisterFormLanguage()
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+        formAge = UserRegisterFormAge()
+        formCommitment = UserRegisterFormCommitment()
+        formSkills = UserRegisterFormSkills()
+    return render(request, 'users/register.html', {'form': form, 'formLanguage': formLanguage, 'formAge': formAge, 'formCommitment':formCommitment, 'formSkills':formSkills} )
 
 @login_required
 def profile(request, pk=None):

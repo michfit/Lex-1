@@ -10,6 +10,12 @@ class CustomUser(AbstractUser):
         ('C', 'Casual'),
         ('S', 'Serious')
     )
+    SKILL_LEVELS = (
+        ('B', 'Beginner'),
+        ('I', 'Intermediate'),
+        ('C', 'Conversational'),
+        ('F', 'Fluent')
+    )
     AGE_RANGES = (
         ('0', 'Under 18 years'),
         ('18', '18 to 24 years'),
@@ -20,7 +26,8 @@ class CustomUser(AbstractUser):
         ('65', 'Age 65 or older'),
     )
     age_range = models.CharField(max_length=3,choices=AGE_RANGES)
-    commitment_level = models.CharField(max_length=3,choices=COMMITMENT_LEVELS)
+    commitment_level = models.CharField(max_length=3, choices=COMMITMENT_LEVELS)
+    skill_level = models.CharField(max_length=4, choices=SKILL_LEVELS)
     
     def __str__(self):
         return self.email

@@ -14,12 +14,11 @@ class UserRegisterForm(UserCreationForm):
 
 
 
-class UserRegisterFormLanguage(forms.Form):
+class UserRegisterFormLanguage(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('language_preference',)
 
-    language_preference = ModelMultipleChoiceField(queryset=Language.objects.all(), widget=Select2MultipleWidget)
 
 class UserRegisterFormAge(forms.ModelForm):
     class Meta:

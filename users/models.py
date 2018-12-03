@@ -5,7 +5,7 @@ from multiselectfield import MultiSelectField
 
 class CustomUser(AbstractUser):
     # add additional fields in here
-    language_preference = models.CharField(max_length=500)
+
     COMMITMENT_LEVELS = (
         ('C', 'Casual'),
         ('S', 'Serious')
@@ -25,6 +25,21 @@ class CustomUser(AbstractUser):
         ('55', '55 to 64 years'),
         ('65', 'Age 65 or older'),
     )
+    LANGUAGES= (
+        ('E', 'English'),
+        ('S', 'Spanish'),
+        ('P', 'Portuguese'),
+        ('M', 'Mandarin'),
+        ('R', 'Russian'),
+        ('G', 'German'),
+        ('H', 'Hindi'),
+        ('M', 'Mandarin'),
+        ('A', 'Arabic'),
+        ('V', 'Vietnamese'),
+        ('J', 'Japanese'),
+        ('B', 'Bengali'),
+    )
+    language_preference = models.CharField(max_length=500, choices=LANGUAGES)
     age_range = models.CharField(max_length=3,choices=AGE_RANGES)
     commitment_level = models.CharField(max_length=3, choices=COMMITMENT_LEVELS)
     skill_level = models.CharField(max_length=4, choices=SKILL_LEVELS)

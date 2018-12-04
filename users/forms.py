@@ -21,6 +21,15 @@ LANGUAGES = (
     ('J', 'Japanese'),
     ('B', 'Bengali'),
 )
+class UserRegisterForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
+
+class UserRegisterFormLanguage(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ('language_preference',)
 
 class UserRegisterFormAge(forms.ModelForm):
     class Meta:

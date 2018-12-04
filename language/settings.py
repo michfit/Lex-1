@@ -28,6 +28,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['http://langx.us-west-2.elasticbeanstalk.com/',
                  'ec2-35-164-112-152.us-west-2.compute.amazonaws.com', '127.0.0.1']
 
+MAP_WIDGETS = {
+"GooglePointFieldWidget": (
+("zoom", 15),
+("mapCenterLocationName", "los_angeles"),
+("GooglePlaceAutocompleteOptions", {'componentRestrictions': {'country': 'america'}}),
+("markerFitZoom", 12),
+),
+"GOOGLE_MAP_API_KEY": "AIzaSyCACVjIdGanqB4UCeOhTqC4AQedSU5X2_E"
+}
 
 # Application definition
 
@@ -44,6 +53,9 @@ INSTALLED_APPS = [
     'django_select2',
     'multiselectfield',
     'postman.apps.PostmanConfig',
+    'mapwidgets',
+    'django.contrib.gis',
+    'django.utils',
 ]
 
 MIDDLEWARE = [
@@ -95,11 +107,11 @@ if 'RDS_DB_NAME' in os.environ:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'lang',
-            'USER': 'felix',
-            'PASSWORD': 'zhang',
-            'HOST': '127.0.0.1',
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
+            'NAME': 'users',
+            'USER': 'rishabsukumar',
+            'PASSWORD': 'Ucla2018',
+            'HOST': 'localhost',
             'PORT': '5432',
         }
     }

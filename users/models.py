@@ -1,11 +1,32 @@
-from django.db import models
+from django.contrib.gis.db import models
 from django.contrib.auth.models import AbstractUser
 from multiselectfield import MultiSelectField
 # Create your models here.
 
 class CustomUser(AbstractUser):
     # add additional fields in here
-    language_preference = models.CharField(max_length=500)
+    LANGUAGES = (
+        ('E', 'English'),
+        ('S', 'Spanish'),
+        ('P', 'Portuguese'),
+        ('M', 'Mandarin'),
+        ('R', 'Russian'),
+        ('G', 'German'),
+        ('H', 'Hindi'),
+        ('M', 'Mandarin'),
+        ('A', 'Arabic'),
+        ('V', 'Vietnamese'),
+        ('J', 'Japanese'),
+        ('B', 'Bengali'),
+    )
+
+    SKILL_LEVELS = (
+        ('B', 'Beginner'),
+        ('I', 'Intermediate'),
+        ('C', 'Conversational'),
+        ('F', 'Fluent')
+    )
+
     COMMITMENT_LEVELS = (
         ('C', 'Casual'),
         ('S', 'Serious')
@@ -21,7 +42,10 @@ class CustomUser(AbstractUser):
     )
     age_range = models.CharField(max_length=3,choices=AGE_RANGES)
     commitment_level = models.CharField(max_length=3,choices=COMMITMENT_LEVELS)
-    
+    location = models.PointField(geography=True, null=True, blank=False)
+    language_preference = models.CharField(max_length=500, choices=LANGUAGES)
+    skill_level = models.CharField(max_length=20, default='B',choices=SKILL_LEVELS)
+
     def __str__(self):
         return self.email
 

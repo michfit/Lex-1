@@ -5,3 +5,5 @@ django-crispy-forms==1.7.2
 django-select2==6.3.1
 django-multiselectfield==0.1.8
 Pillow==5.3.0
+django-map-widgets==0.2.0
+pytz==2018.5

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	{{ form.media.css }}
+    {{ form.media.css }}
 	<style type="text/css">
 		select {
 			width: 500px;
@@ -16,7 +16,15 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Join Today</legend>
-                {{ form|crispy }}
+                {{form.media.js}}
+                {{ form.media }}
+                {{ form| crispy }}
+                {{ formAge|crispy }}
+                {{ formCommitment|crispy }}
+                {{ formSkills|crispy }}
+                {{ formLanguage|crispy }}
+                {{ formLocation.media }}
+                {{ formLocation|crispy }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign Up</button>
@@ -33,7 +41,6 @@
   		window.onerror = function (msg) {
     		$("body").attr("JSError", msg);
   		}
-	</script>
-	{{ form.media.js }}
+    </script>
 </body>
 {% endblock content %}

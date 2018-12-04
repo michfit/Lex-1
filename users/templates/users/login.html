@@ -1,5 +1,108 @@
 
 {% load crispy_forms_tags %}
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet">
+<style>
+.standardFont {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+}
+.titleFont {
+    font-family: 'Text Me One', sans-serif;
+    font-weight: 700;
+}
+body {
+    background: url("/static/nightlion-teacher.png") 50% 0 no-repeat fixed;
+    background-color: darkblue;
+}
+.loginButton {
+    padding: 10px 20px;
+    background-color: #4DACF2;
+    color: white;
+    border: 1px solid #4DACF2;
+    border-radius: 1.5em;
+    font-size: 1.1em;
+    margin-top: 50px;
+    max-width: 500px;
+}
+.loginButton:hover {
+    background-color: #74BFF6;
+    border: 1px solid #74BFF6;
+}
+.loginButton:active {
+    background-color: #F2D24D;
+    color: black;
+    border: 1px solid #F2D24D;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+fieldset {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px solid #4DACF2;
+    background-color: #4DACF2;
+    color: white;
+    text-align: center;
+}
+fieldset input {
+    padding: 0.5em;
+    margin: 0.5em;
+    font-size: 0.9em;
+    border-radius: 1.5em;
+    border: 1px solid white;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #4DACF2;
+}
+.loginBox {
+    max-width: 400px;
+    border-radius: 50px;
+}
+.label {
+    padding: 10px 20px;
+    width: 50%;
+    background-color: white;
+    color: #4DACF2;
+    border: 1px solid white;
+    border-radius: 1.5em;
+}
+.needAnAccount {
+    background-color: #4DACF2;
+    font-size: 20px;
+    color: white;
+    max-width: 170px;
+    padding: 10px 10px 23px 10px;
+    border-radius: 1.5em;
+}
+.needAnAccount a {
+    background-color: white;
+    font-size: 16px;
+    color: #4DACF2;
+    padding: 10px 20px;
+    border-radius: 1.5em;
+    text-decoration: none;
+}
+.needAnAccount a:hover {
+    color: #4DACF2;
+    background-color: #EEEEED;
+}
+.needAnAccount p {
+    margin: 0px;
+    padding: 5px 2px;
+    margin-bottom: 20px;
+}
+.centerText {
+    text-align: center;
+}
+</style>
 {% if messages %}
   <ul class="messages">
     {% for message in messages %}
@@ -8,20 +111,21 @@
   </ul>
 {% endif %}
 {% block content %}
-    <div class="content-section">
+    <div class="content-section standardFont" style="margin-top: 7%;">
         <form method="POST">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In</legend>
-                {{ form|crispy }}
+            <fieldset class="form-group loginBox">
+                <legend class="border-bottom mb-4 label titleFont">ACCOUNT LOGIN</legend>
+                    {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Log in</button>
+                <button class="btn btn-outline-info loginButton standardFont center" type="submit">Lex Go!</button>
             </div>
         </form>
-        <div class="border-top pt-3">
+        <div class="border-top pt-3 needAnAccount center centerText">
             <small class="text-muted">
-                Need An Account? <a class="ml-2" href="{%url 'register'%}">Sign Up Now</a>
+                <p>Need An Account?</p>
+                <a class="ml-2" href="{%url 'register'%}">Sign Up</a>
             </small>
         </div>
     </div>

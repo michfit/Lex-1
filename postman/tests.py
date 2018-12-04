@@ -434,7 +434,7 @@ class ViewTest(BaseTest):
             d = data.copy()
             del d[f]
             response = self.client.post(url, d, HTTP_REFERER=url)
-            self.assertFormError(response, 'form', f, 'This field is required.')
+            self.assertFormError(response, 'form', f, 'This is required! Come on!')
 
     def test_write_post_anonymous(self):
         self.check_write_post({'email': 'a@b.com'}, is_anonymous=True)

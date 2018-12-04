@@ -3,26 +3,148 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet">
 	{{ form.media.css }}
-	<style type="text/css">
-		select {
-			width: 500px;
-		}
+    <style type="text/css">
+        select {
+            max-width: 500px;
+        }
+        .standardFont {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 200;
+        }
+        .titleFont {
+            font-family: 'Text Me One', sans-serif;
+            font-weight: 700;
+        }
+        body {
+            /* Why doesn't this work?! */
+            background-image: url("https://puu.sh/CcdwE/eb2173eb21.png"); 
+            background-color: darkblue;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        fieldset {
+            padding-top: 0.75em;
+            padding-bottom: 0.75em;
+            padding-left: 0.9em;
+            padding-right: 0.9em;
+            border: 2px solid #4DACF2;
+            background-color: #4DACF2;
+            color: white;
+            text-align: center;
+        }
+        fieldset input, select, option, datalist {
+            padding: 0.5em;
+            margin: 0.5em;
+            font-size: 0.9em;
+            border-radius: 1.5em;
+            border: 1px solid white;
+            text-align: center;
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #4DACF2;
+        }
+        fieldset select {
+            height: 70px;
+            background-color: #EEEEED;
+            width: 300px;
+        }
+        fieldset li {
+            list-style-type: none;
+        }
+        .joinToday {
+            padding: 10px 20px;
+            width: 50%;
+            background-color: white;
+            color: #4DACF2;
+            border: 1px solid white;
+            border-radius: 1.5em;
+            font-size: 1.1em;
+        }
+        .container {
+            max-width: 500px;
+        }
+        .centerText {
+            text-align: center;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .roundedEdges {
+            border-radius: 50px;
+            border: 2px solid #4DACF2;
+        }
+        .gotAnAccount {
+            background-color: #4DACF2;
+            font-size: 22px;
+            color: white;
+            max-width: 30%;
+            padding: 20px 20px 33px 20px;
+            border-radius: 1.5em;
+        }
+        .gotAnAccount a {
+            background-color: white;
+            font-size: 16px;
+            color: #4DACF2;
+            padding: 10px 20px;
+            border-radius: 1.5em;
+            text-decoration: none;
+        }
+        .gotAnAccount a:hover {
+            color: #4DACF2;
+            background-color: #EEEEED;
+        }
+        .gotAnAccount p {
+            margin: 0px;
+            padding: 5px 2px;
+            margin-bottom: 20px;
+        }
+        .signUpBox {
+            max-width: 75%;
+            border-radius: 50px;
+        }
+        .signUpButton {
+            padding: 10px 20px;
+            background-color: #4DACF2;
+            color: white;
+            border: 1px solid #4DACF2;
+            border-radius: 1.5em;
+            font-size: 1.1em;
+            max-width: 170px;
+            margin-top: 50px;
+        }
+        .signUpButton:hover {
+            background-color: #74BFF6;
+            border: 1px solid #74BFF6;
+        }
+        .signUpButton:active {
+            background-color: #F2D24D;
+            color: black;
+            border: 1px solid #F2D24D;
+        }
 	</style>
 </head>
 <body>
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Sign Up</button>
-            </div>
-        </form>
-        <div class="border-top pt-3">
+    <div class="content-section standardFont" style="margin-top: 7%">
+        <div class="container center">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group roundedEdges">
+                    <legend class="border-bottom mb-4 titleFont joinToday">JOIN TODAY</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info signUpButton center" type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        <div class="border-top pt-3 gotAnAccount center centerText" style="margin-top: 7%; margin-bottom: 7%">
             <small class="text-muted">
                 Already Have An Account? <a class="ml-2" href="{%url 'login'%}">Sign In</a>
             </small>

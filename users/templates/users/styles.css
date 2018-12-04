@@ -1,0 +1,104 @@
+.standardFont {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+.titleFont {
+    font-family: 'Text Me One', sans-serif;
+}
+body {
+    background-color: #444444;
+}
+.loginButton {
+    padding: 10px 20px;
+    background-color: #4DACF2;
+    color: white;
+    border: 1px solid #4DACF2;
+    border-radius: 1.5em;
+    font-size: 1.1em;
+    width: 30%;
+    margin-top: 50px;
+}
+.loginButton:hover {
+    padding: 10px 20px;
+    background-color: #74BFF6;
+    color: white;
+    border: 1px solid #74BFF6;
+    border-radius: 1.5em;
+    font-size: 1.1em;
+    width: 30%;
+    margin-top: 50px;
+}
+.loginButton:active {
+    padding: 10px 20px;
+    background-color: #F2D24D;
+    color: black;
+    border: 1px solid #F2D24D;
+    border-radius: 1.5em;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+fieldset {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px solid #4DACF2;
+    background-color: #4DACF2;
+    color: white;
+    text-align: center;
+}
+fieldset input {
+    padding: 0.5em;
+    margin: 0.5em;
+    font-size: 0.9em;
+    border-radius: 1.5em;
+    border: 1px solid white;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #4DACF2;
+}
+.loginBox {
+    max-width: 75%;
+    border-radius: 50px;
+}
+.label {
+    padding: 10px 20px;
+    width: 50%;
+    background-color: white;
+    color: #4DACF2;
+    border: 1px solid white;
+    border-radius: 1.5em;
+}
+.needAnAccount {
+    background-color: #4DACF2;
+    font-size: 28px;
+    color: white;
+    max-width: 30%;
+    padding: 20px 20px 33px 20px;
+    border-radius: 1.5em;
+}
+.needAnAccount a {
+    background-color: white;
+    font-size: 16px;
+    color: #4DACF2;
+    padding: 10px 20px;
+    border-radius: 1.5em;
+    text-decoration: none;
+}
+.needAnAccount a:hover {
+    color: #4DACF2;
+    background-color: #EEEEED;
+}
+.needAnAccount p {
+    margin: 0px;
+    padding: 5px 2px;
+    margin-bottom: 20px;
+}
+.centerText {
+    text-align: center;
+}

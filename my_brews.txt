@@ -1,0 +1,6 @@
+gdal
+geoip
+geos
+postgis
+postgresql
+proj

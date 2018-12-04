@@ -32,13 +32,15 @@ def register(request):
 def profile(request, pk=None):
     if pk:
         user = CustomUser.objects.get(pk=pk)
+        args = {'user': user}
+
 
 
     else:
         user = request.user
-    friend = Friends.objects.get(current_user=request.user)
-    friends = friend.users.all()
-    args = {'user': user, 'friends':friends}
+        friend = Friends.objects.get(current_user=request.user)
+        friends = friend.users.all()
+        args = {'user': user, 'friends':friends}
     return render(request, 'users/profile.html', args)
 
 @login_required

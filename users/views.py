@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import CustomUser
 from .forms import FriendForm
 from users.forms import UserRegisterFormLanguage, UserRegisterFormAge, UserRegisterFormCommitment, UserRegisterFormSkills
+from users.models import Friends
 
 def register(request):
     if request.method == 'POST':
@@ -31,9 +32,13 @@ def register(request):
 def profile(request, pk=None):
     if pk:
         user = CustomUser.objects.get(pk=pk)
+
+
     else:
         user = request.user
-    args = {'user': user}
+    friend = Friends.objects.get(current_user=request.user)
+    friends = friend.users.all()
+    args = {'user': user, 'friends':friends}
     return render(request, 'users/profile.html', args)
 
 @login_required
@@ -63,9 +68,22 @@ def testfindfriends(request):
             users = users.filter(age_range=request.user.age_range)
         if qUsername:
             users = users.filter(username = qUsername)
-        args = {'users':users}
+        friend, created = Friends.objects.get_or_create(current_user=request.user)
+        friends = friend.users.all()
+        args = {'users': users, 'friends': friends}
         return render(request, 'users/testfindfriends.html', args)
     else:
 
-        args = {'users':users}
+        friend, created = Friends.objects.get_or_create(current_user=request.user)
+        friends = friend.users.all()
+        args = {'users': users, 'friends': friends}
         return render(request, 'users/testfindfriends.html', args)
+
+def change_friends(request, operation, pk):
+    friend = CustomUser.objects.get(pk=pk)
+    if operation == 'add':
+        Friends.make_friend(request.user, friend)
+        return redirect('findfriends')
+    elif operation == 'remove':
+        Friends.lose_friend(request.user, friend)
+        return redirect('profile')

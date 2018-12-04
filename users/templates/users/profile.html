@@ -6,5 +6,13 @@
     <p>{{ user.email }}</p>
  <p>{{ user.language_preference }}</p>
  <p>{{ user.age_range }}</p>
-
+<p>Friends List</p>
+{% for friend in friends %}
+    <a href="{% url 'profile_with_pk' pk=friend.pk %}">
+        <p>{{ friend.username }}</p>
+        <form action="{% url 'change_friends' operation='remove' pk=friend.pk %}">
+            <input type="submit" value="Remove Friend" />
+        </form>
+    </a>
+{% endfor %}
 {% endblock content %}

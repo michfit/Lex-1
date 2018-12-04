@@ -74,7 +74,7 @@ class Friends(models.Model):
         friend.users.add(new_friend)
 
     @classmethod
-    def make_friend(cls, current_user, new_friend):
+    def lose_friend(cls, current_user, new_friend):
         friend, created = cls.objects.get_or_create(
             current_user=current_user
         )

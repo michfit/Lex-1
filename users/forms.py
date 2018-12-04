@@ -7,10 +7,25 @@ from .models import CustomUser, Language
 from django import forms
 from django.forms import ModelForm
 
+LANGUAGES = (
+    ('E', 'English'),
+    ('S', 'Spanish'),
+    ('P', 'Portuguese'),
+    ('M', 'Mandarin'),
+    ('R', 'Russian'),
+    ('G', 'German'),
+    ('H', 'Hindi'),
+    ('M', 'Mandarin'),
+    ('A', 'Arabic'),
+    ('V', 'Vietnamese'),
+    ('J', 'Japanese'),
+    ('B', 'Bengali'),
+)
+
 class UserRegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
 
 
 

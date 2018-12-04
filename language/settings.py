@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['langx.us-west-2.elasticbeanstalk.com',
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'main.apps.MainConfig',
-    #'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

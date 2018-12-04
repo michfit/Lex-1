@@ -14,4 +14,10 @@
     <a href="{% url 'profile_with_pk' pk=user.pk %}">
         <p>{{ user.username }}</p>
     </a>
+    {% if user not in friends %}
+        <form action="{% url 'change_friends' operation='add' pk=user.pk %}">
+            <button>Add Friend</button>
+        </form>
+    {% endif %}
 {% endfor %}
+

@@ -25,19 +25,23 @@ class CustomUser(AbstractUser):
         ('55', '55 to 64 years'),
         ('65', 'Age 65 or older'),
     )
-    LANGUAGES = (
+
+    LANGUAGES= (
         ('E', 'English'),
-        ('M', 'Mandarin'),
         ('S', 'Spanish'),
-        ('H', 'Hindi'),
-        ('A', 'Arabic'),
         ('P', 'Portuguese'),
-        ('J', 'Japanese'),
+        ('M', 'Mandarin'),
         ('R', 'Russian'),
         ('G', 'German'),
+        ('H', 'Hindi'),
+        ('M', 'Mandarin'),
+        ('A', 'Arabic'),
+        ('V', 'Vietnamese'),
+        ('J', 'Japanese'),
+        ('B', 'Bengali'),
     )
-    age_range = models.CharField(max_length=3, choices=AGE_RANGES)
-    language_preference = models.CharField(max_length=500, choices=LANGUAGES,)
+    language_preference = models.CharField(max_length=500, choices=LANGUAGES)
+    age_range = models.CharField(max_length=3,choices=AGE_RANGES)
     commitment_level = models.CharField(max_length=3, choices=COMMITMENT_LEVELS)
     skill_level = models.CharField(max_length=4, choices=SKILL_LEVELS, default="Beginner")
     
@@ -71,7 +75,7 @@ class Friends(models.Model):
         friend.users.add(new_friend)
 
     @classmethod
-    def make_friend(cls, current_user, new_friend):
+    def lose_friend(cls, current_user, new_friend):
         friend, created = cls.objects.get_or_create(
             current_user=current_user
         )

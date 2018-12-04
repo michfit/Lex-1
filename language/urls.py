@@ -30,6 +30,5 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('update/', user_views.update, name='update'),
     path('findfriends/', user_views.testfindfriends, name='findfriends'),
+    path('messages/', include('postman.urls'))
 ]
-
-
